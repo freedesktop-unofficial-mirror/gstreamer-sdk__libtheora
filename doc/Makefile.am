@@ -12,7 +12,7 @@ doc_DATA = $(static_docs) doxygen-build.stamp
 
 EXTRA_DIST = $(static_docs) Doxyfile.in
 
-if HAVE_DOXYGEN
+if BUILD_DOC
 doxygen-build.stamp: Doxyfile $(top_srcdir)/include/theora/*.h
 	doxygen
 	touch doxygen-build.stamp

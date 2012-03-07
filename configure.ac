@@ -409,6 +409,19 @@ AC_ARG_ENABLE(examples,
      [ ac_enable_examples=$enableval ], [ ac_enable_examples=yes] )
 AM_CONDITIONAL(THEORA_ENABLE_EXAMPLES, [test "x${ac_enable_examples}" != xno])
 
+ac_enable_doc=yes
+AC_ARG_ENABLE(doc,
+     [  --disable-doc      disable documentation ],
+     [ ac_enable_doc=$enableval ], [ ac_enable_doc=yes] )
+
+doc_build="no"
+if test $HAVE_DOXYGEN = "yes"; then
+if test $ac_build_doc = "yes"; then
+  doc_build="yes"
+fi
+fi
+AM_CONDITIONAL([BUILD_DOC], [test x$doc_build = xyes])
+
 dnl --------------------------------------------------
 dnl Check for headers
 dnl --------------------------------------------------
@@ -471,11 +484,6 @@ AS_AC_EXPAND(INCLUDEDIR, ${includedir})
 AS_AC_EXPAND(BINDIR, ${bindir})
 AS_AC_EXPAND(DOCDIR, ${datadir}/doc)
 
-if test $HAVE_DOXYGEN = "false"; then
-  doc_build="no"
-else
-  doc_build="yes"
-fi
 if test $BUILD_SPEC = "false"; then
   spec_build="no"
 else
