@@ -90,6 +90,7 @@ GETOPT_OBJS = @GETOPT_OBJS@
 GREP = @GREP@
 HAVE_BIBTEX = @HAVE_BIBTEX@
 HAVE_DOXYGEN = @HAVE_DOXYGEN@
+BUILD_DOC = @BUILD_DOC@
 HAVE_PDFLATEX = @HAVE_PDFLATEX@
 HAVE_PKG_CONFIG = @HAVE_PKG_CONFIG@
 HAVE_TRANSFIG = @HAVE_TRANSFIG@
@@ -451,12 +452,12 @@ uninstall-info: uninstall-info-recursive
 	uninstall-info-recursive uninstall-local uninstall-recursive
 
 
-@HAVE_DOXYGEN_TRUE@doxygen-build.stamp: Doxyfile $(top_srcdir)/include/theora/*.h
-@HAVE_DOXYGEN_TRUE@	doxygen
-@HAVE_DOXYGEN_TRUE@	touch doxygen-build.stamp
-@HAVE_DOXYGEN_FALSE@doxygen-build.stamp:
-@HAVE_DOXYGEN_FALSE@	echo "*** Warning: Doxygen not found; documentation will not be built."
-@HAVE_DOXYGEN_FALSE@	touch doxygen-build.stamp
+@BUILD_DOC_TRUE@doxygen-build.stamp: Doxyfile $(top_srcdir)/include/theora/*.h
+@BUILD_DOC_TRUE@	doxygen
+@BUILD_DOC_TRUE@	touch doxygen-build.stamp
+@BUILD_DOC_FALSE@doxygen-build.stamp:
+@BUILD_DOC_FALSE@	echo "*** Warning: Doxygen not found; documentation will not be built."
+@BUILD_DOC_FALSE@	touch doxygen-build.stamp
 
 dist-hook:
 	if test -d libtheora; then \
