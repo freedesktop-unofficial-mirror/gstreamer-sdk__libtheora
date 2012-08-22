@@ -78,6 +78,7 @@ encoder_uniq_sources = \
 encoder_sources = \
 	apiwrapper.c \
 	fragment.c \
+	info.c \
 	idct.c \
 	internal.c \
 	state.c \
