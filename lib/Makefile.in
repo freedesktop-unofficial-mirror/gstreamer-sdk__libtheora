@@ -206,6 +206,7 @@ lib_LTLIBRARIES = libtheoradec.la libtheoraenc.la libtheora.la
 @THEORA_DISABLE_ENCODE_FALSE@encoder_sources = \
 @THEORA_DISABLE_ENCODE_FALSE@	apiwrapper.c \
 @THEORA_DISABLE_ENCODE_FALSE@	fragment.c \
+@THEORA_DISABLE_ENCODE_FALSE@	info.c \
 @THEORA_DISABLE_ENCODE_FALSE@	idct.c \
 @THEORA_DISABLE_ENCODE_FALSE@	internal.c \
 @THEORA_DISABLE_ENCODE_FALSE@	state.c \
@@ -368,7 +369,7 @@ libtheoraenc_la_LIBADD =
 @CPU_x86_64_TRUE@@THEORA_DISABLE_ENCODE_FALSE@	$(am__objects_8) \
 @CPU_x86_64_TRUE@@THEORA_DISABLE_ENCODE_FALSE@	$(am__objects_9)
 @THEORA_DISABLE_ENCODE_TRUE@am__objects_11 = $(am__objects_7)
-@THEORA_DISABLE_ENCODE_FALSE@am__objects_11 = apiwrapper.lo fragment.lo \
+@THEORA_DISABLE_ENCODE_FALSE@am__objects_11 = apiwrapper.lo info.lo fragment.lo \
 @THEORA_DISABLE_ENCODE_FALSE@	idct.lo internal.lo state.lo \
 @THEORA_DISABLE_ENCODE_FALSE@	quant.lo $(am__objects_10) \
 @THEORA_DISABLE_ENCODE_FALSE@	$(am__objects_7)
